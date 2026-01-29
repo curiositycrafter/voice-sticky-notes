@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Voice Sticky Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<div class="app">
+
+<header class="toolbar">
+  <div class="left">
+    <button id="recordBtn">🎙 Record</button>
+    <button id="stopBtn">⏹ Stop</button>
+    <button id="clearBtn">🧹 Clear</button>
+  </div>
+
+  <span id="model-status">Ready</span>
+
+  <select id="folderSelect"></select>
+  <button id="newFolderBtn">➕ Folder</button>
+
+  <input id="searchBox" placeholder="Search notes…" />
+</header>
+
+<main class="workspace">
+
+<section id="instructions" class="instructions-card">
+  <h3>✍️ How to use</h3>
+  <ul>
+    <li>Press Record and speak.</li>
+    <li>Say <b>"post"</b> to save.</li>
+    <li>Say <b>"next point"</b> for bullet points.</li>
+    <li>Say <b>"undo"</b>, <b>"redo"</b>, <b>"delete note"</b>.</li>
+    <li>Voice: select all, copy, paste.</li>
+    <li>Keyboard: Ctrl+Z, Ctrl+S, Ctrl+C, Ctrl+V</li>
+  </ul>
+</section>
+
+<section class="editor-card">
+  <div id="active-note">
+    <div id="note-text"></div>
+    <span id="cursor">|</span>
+  </div>
+</section>
+
+<section class="board-card">
+  <h3>📌 Your Notes</h3>
+  <div id="notes-wall"></div>
+</section>
+
+</main>
+</div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

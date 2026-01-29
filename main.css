@@ -1,0 +1,134 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #0e0e11;
+  color: #eaeaea;
+}
+
+.toolbar {
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+  background: #141418;
+  border-bottom: 1px solid #222;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(8px);
+}
+
+.toolbar button,
+.toolbar select,
+.toolbar input {
+  background: #1f1f26;
+  color: #eaeaea;
+  border: 1px solid #333;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: 0.15s;
+}
+
+.toolbar input {
+  flex: 1;
+  background: #111116;
+}
+
+.toolbar button:hover { background: #2b2b33; }
+.toolbar button:active { transform: scale(0.96); }
+
+.workspace {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.editor-card {
+  background: #15151a;
+  border-radius: 10px;
+  padding: 15px;
+  border: 1px solid #2a2a33;
+  box-shadow: 0 0 0 1px #1c1c22, 0 8px 30px rgba(0,0,0,0.6);
+}
+
+#active-note {
+  min-height: 120px;
+  font-family: monospace;
+}
+
+.instructions-card {
+  background: #121216;
+  border-radius: 10px;
+  padding: 14px;
+  font-family: "Patrick Hand", cursive;
+  border: 1px solid #222;
+}
+
+.board-card {
+  background: #0f0f13;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #222;
+}
+
+.board-card h3 {
+  margin-top: 0;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+#notes-wall {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 14px;
+}
+
+.sticky-note {
+  background: linear-gradient(160deg, #1e1e26, #0f0f14);
+  border-radius: 10px;
+  padding: 12px;
+  color: #eaeaea;
+  position: relative;
+  cursor: grab;
+  border: 1px solid #2a2a35;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  transition: transform .2s, box-shadow .2s, max-height .25s ease;
+}
+
+.sticky-note::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  box-shadow: inset 0 0 20px rgba(255,255,255,0.02);
+}
+
+.sticky-note:hover { transform: translateY(-4px); }
+
+.sticky-note.selected { outline: 2px solid #888; }
+
+.sticky-delete {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: #333;
+  border: none;
+  color: #eee;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.sticky-delete:hover { background: #ff4d4d; }
+
+.sticky-note.expanded { max-height: none; }
+
+#cursor {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
